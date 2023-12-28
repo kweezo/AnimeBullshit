@@ -24,7 +24,7 @@ typedef struct {
 class Display
 {
 public:
-	Display(DisplayCreateInfo* createInfo);
+	Display(DisplayCreateInfo createInfo);
 	Display(const Display& other);
 	Display& operator=(const Display& other);
 
@@ -33,18 +33,21 @@ private:
 	VkSurfaceKHR surface;
 	VkSwapchainKHR swapchain;
 
-	DisplayCreateInfo* createInfo;
+	DisplayCreateInfo createInfo;
 
 	void CreateSurface();
 	void CreateSwapchain();
+	void CreateSwapchainImageViews();
 
 	void CopyFrom(const Display& other);
 
 	std::shared_ptr<char> useCount;
 
 	const uint32_t imageCount = 3;
+	std::vector<VkImageView> swapchainImageViews;
 
 	VkSurfaceCapabilitiesKHR surfaceCapabilities;
+	VkSurfaceFormatKHR surfaceFormat;
 
 };
 

@@ -19,7 +19,7 @@ typedef struct {
 class Device
 {
 public:
-	Device(DeviceCreateInfo* createInfo);
+	Device(DeviceCreateInfo createInfo);
 	Device(const Device& other);
 	Device& operator=(const Device& other);
 

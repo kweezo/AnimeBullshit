@@ -1,39 +1,38 @@
 #include "Display.h"
 
-Display::Display(DisplayCreateInfo* createInfo) {
+Display::Display(DisplayCreateInfo createInfo) {
 	this->createInfo = createInfo;
 	useCount.reset(new char);
 	
 	CreateSurface();
 	CreateSwapchain();
+	CreateSwapchainImageViews();
 }
 
 void Display::CreateSurface() {
 	VkWin32SurfaceCreateInfoKHR surfaceCreateInfo{};
 
 	surfaceCreateInfo.sType = VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR;
-	surfaceCreateInfo.hwnd = glfwGetWin32Window(createInfo->window->GetWindow());
+	surfaceCreateInfo.hwnd = glfwGetWin32Window(createInfo.window->GetWindow());
 	surfaceCreateInfo.hinstance = GetModuleHandle(nullptr);
 
-	if (vkCreateWin32SurfaceKHR(createInfo->instance->GetInstance(), &surfaceCreateInfo, nullptr, &surface) != VK_SUCCESS) {
+	if (vkCreateWin32SurfaceKHR(createInfo.instance->GetInstance(), &surfaceCreateInfo, nullptr, &surface) != VK_SUCCESS) {
 		std::cout << "Failed to create a win32 surface" << std::endl;
 	}
 }
 
 void Display::CreateSwapchain() {
-	vkGetPhysicalDeviceSurfaceCapabilitiesKHR(createInfo->device->GetPhysicalDevice(), surface, &surfaceCapabilities);
+	vkGetPhysicalDeviceSurfaceCapabilitiesKHR(createInfo.device->GetPhysicalDevice(), surface, &surfaceCapabilities);
 
 	uint32_t surfaceformatCount;
-	vkGetPhysicalDeviceSurfaceFormatsKHR(createInfo->device->GetPhysicalDevice(), surface, &surfaceformatCount, nullptr);
+	vkGetPhysicalDeviceSurfaceFormatsKHR(createInfo.device->GetPhysicalDevice(), surface, &surfaceformatCount, nullptr);
 
 	std::vector<VkSurfaceFormatKHR> surfaceFormats(surfaceformatCount);
-	vkGetPhysicalDeviceSurfaceFormatsKHR(createInfo->device->GetPhysicalDevice(), surface, &surfaceformatCount, surfaceFormats.data());
+	vkGetPhysicalDeviceSurfaceFormatsKHR(createInfo.device->GetPhysicalDevice(), surface, &surfaceformatCount, surfaceFormats.data());
 
-	VkSurfaceFormatKHR bestFormat = surfaceFormats[0];
-
-	for (VkSurfaceFormatKHR surfaceFormat : surfaceFormats) {
-		if (surfaceFormat.colorSpace == VK_COLOR_SPACE_SRGB_NONLINEAR_KHR && surfaceFormat.format == VK_FORMAT_B8G8R8A8_SRGB) {
-			bestFormat = surfaceFormat;
+	for (VkSurfaceFormatKHR currFormat : surfaceFormats) {
+		if (currFormat.colorSpace == VK_COLOR_SPACE_SRGB_NONLINEAR_KHR && currFormat.format == VK_FORMAT_B8G8R8A8_SRGB) {
+			surfaceFormat = currFormat;
 		}
 	}
 
@@ -42,13 +41,13 @@ void Display::CreateSwapchain() {
 	swapchainCreateInfo.sType = VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR;
 	swapchainCreateInfo.surface = surface;
 	swapchainCreateInfo.minImageCount = imageCount;
-	swapchainCreateInfo.imageFormat = bestFormat.format;
-	swapchainCreateInfo.imageColorSpace = bestFormat.colorSpace;
+	swapchainCreateInfo.imageFormat = surfaceFormat.format;
+	swapchainCreateInfo.imageColorSpace = surfaceFormat.colorSpace;
 	swapchainCreateInfo.imageExtent = surfaceCapabilities.currentExtent;
 	swapchainCreateInfo.imageArrayLayers = 1;
 	swapchainCreateInfo.imageUsage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
 	
-	std::array<uint32_t, QUEUE_FAMILY_COUNT> queueFamilyIndices = createInfo->device->GetQueueFamilyIndices();
+	std::array<uint32_t, QUEUE_FAMILY_COUNT> queueFamilyIndices = createInfo.device->GetQueueFamilyIndices();
 	std::array<uint32_t, 2> neededQueueFamilyIndices = { queueFamilyIndices[GRAPHICS_QUEUE_FAMILY],
 		queueFamilyIndices[TRANSFER_QUEUE_FAMILY] };
 
@@ -67,9 +66,51 @@ void Display::CreateSwapchain() {
 	swapchainCreateInfo.presentMode = VK_PRESENT_MODE_FIFO_KHR;
 	swapchainCreateInfo.clipped = VK_TRUE;
 
-	if (vkCreateSwapchainKHR(createInfo->device->GetDevice(), &swapchainCreateInfo, nullptr, &swapchain) != VK_SUCCESS) {
+	if (vkCreateSwapchainKHR(createInfo.device->GetDevice(), &swapchainCreateInfo, nullptr, &swapchain) != VK_SUCCESS) {
 		std::cerr << "Failed to create the swapchain" << std::endl;
 	}
+
+}
+
+void Display::CreateSwapchainImageViews() {
+
+	uint32_t swapchainImageCount;
+	vkGetSwapchainImagesKHR(createInfo.device->GetDevice(), swapchain, &swapchainImageCount, nullptr);
+
+	std::vector<VkImage> swapchainImages(swapchainImageCount);
+	vkGetSwapchainImagesKHR(createInfo.device->GetDevice(), swapchain, &swapchainImageCount, swapchainImages.data());
+
+	if (swapchainImageCount != imageCount) {
+		std::cerr << "WARNING: insufficient amount of swapchain images created" << std::endl;
+	}
+	
+	VkImageSubresourceRange subResRange{};
+	subResRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
+	subResRange.baseMipLevel = 0;
+	subResRange.levelCount = 1;
+	subResRange.baseArrayLayer = 0;
+	subResRange.layerCount = 1;
+
+	VkImageViewCreateInfo imageViewCreateInfo{};
+
+	imageViewCreateInfo.sType = VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO;
+	imageViewCreateInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
+	imageViewCreateInfo.format = surfaceFormat.format;
+	imageViewCreateInfo.components = { VK_COMPONENT_SWIZZLE_IDENTITY, VK_COMPONENT_SWIZZLE_IDENTITY,
+		VK_COMPONENT_SWIZZLE_IDENTITY, VK_COMPONENT_SWIZZLE_IDENTITY };
+	imageViewCreateInfo.subresourceRange = subResRange;
+
+	swapchainImageViews.resize(swapchainImageCount);
+
+	for (uint32_t i = 0; i < imageCount; i++) {
+		imageViewCreateInfo.image = swapchainImages[i];
+		
+		if (vkCreateImageView(createInfo.device->GetDevice(), &imageViewCreateInfo, nullptr, &swapchainImageViews[i])
+			!= VK_SUCCESS) {
+			std::cerr << "Failed to create image view number " << i << std::endl;
+		}
+	}
+
 }
 
 Display::Display(const Display& other) {
@@ -94,7 +135,7 @@ void Display::CopyFrom(const Display& other) {
 
 Display::~Display() {
 	if (useCount.use_count() == 1) {
-		vkDestroySwapchainKHR(createInfo->device->GetDevice(), swapchain, nullptr);
-		vkDestroySurfaceKHR(createInfo->instance->GetInstance(), surface, nullptr);
+		vkDestroySwapchainKHR(createInfo.device->GetDevice(), swapchain, nullptr);
+		vkDestroySurfaceKHR(createInfo.instance->GetInstance(), surface, nullptr);
 	}
 }

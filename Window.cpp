@@ -2,10 +2,10 @@
 
 bool Window::sExists = false;
 
-Window::Window(WindowCreateInfo* createInfo) {
-	dimensions.x = createInfo->dimensions.x;
-	dimensions.y = createInfo->dimensions.y;
-	fullscreen = createInfo->fullscreen;
+Window::Window(WindowCreateInfo createInfo) {
+	dimensions.x = createInfo.dimensions.x;
+	dimensions.y = createInfo.dimensions.y;
+	fullscreen = createInfo.fullscreen;
 	
 	if (sExists) {
 		std::cerr << "Failed to create a window instance, as one already exists" << std::endl;
@@ -19,7 +19,7 @@ Window::Window(WindowCreateInfo* createInfo) {
 	glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 
 	pWindow = glfwCreateWindow(dimensions.x, dimensions.y,
-		createInfo->title.c_str(),
+		createInfo.title.c_str(),
 		fullscreen ? glfwGetPrimaryMonitor() : nullptr,
 		nullptr);
 

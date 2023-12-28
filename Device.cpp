@@ -4,10 +4,10 @@ const std::array<const char*, 1> deviceExtensions = {
 	VK_KHR_SWAPCHAIN_EXTENSION_NAME
 };
 
-Device::Device(DeviceCreateInfo* createInfo) {
+Device::Device(DeviceCreateInfo createInfo) {
 	useCount.reset(new char);
 
-	instance = createInfo->instance;
+	instance = createInfo.instance;
 
 	PickPhysicalDevice();
 	MapQueueFamilyIndexes();
