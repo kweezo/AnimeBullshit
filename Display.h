@@ -28,6 +28,10 @@ public:
 	Display(const Display& other);
 	Display& operator=(const Display& other);
 
+	VkExtent2D GetSwapchainExtent();
+	VkFormat GetSwapchainImageFormat();
+	std::vector<VkImageView> GetSwapchainImageViews();
+
 	~Display();
 private:
 	VkSurfaceKHR surface;
@@ -45,6 +49,7 @@ private:
 
 	const uint32_t imageCount = 3;
 	std::vector<VkImageView> swapchainImageViews;
+	std::vector<VkFramebuffer> swapchainFramebuffers;
 
 	VkSurfaceCapabilitiesKHR surfaceCapabilities;
 	VkSurfaceFormatKHR surfaceFormat;

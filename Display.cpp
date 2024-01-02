@@ -1,6 +1,6 @@
 #include "Display.h"
 
-Display::Display(DisplayCreateInfo createInfo) {
+Display::Display(DisplayCreateInfo createInfo): swapchain(VK_NULL_HANDLE) {
 	this->createInfo = createInfo;
 	useCount.reset(new char);
 	
@@ -46,6 +46,7 @@ void Display::CreateSwapchain() {
 	swapchainCreateInfo.imageExtent = surfaceCapabilities.currentExtent;
 	swapchainCreateInfo.imageArrayLayers = 1;
 	swapchainCreateInfo.imageUsage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
+	swapchainCreateInfo.oldSwapchain = swapchain;
 	
 	std::array<uint32_t, QUEUE_FAMILY_COUNT> queueFamilyIndices = createInfo.device->GetQueueFamilyIndices();
 	std::array<uint32_t, 2> neededQueueFamilyIndices = { queueFamilyIndices[GRAPHICS_QUEUE_FAMILY],
@@ -73,6 +74,8 @@ void Display::CreateSwapchain() {
 }
 
 void Display::CreateSwapchainImageViews() {
+
+	swapchainImageViews.clear();
 
 	uint32_t swapchainImageCount;
 	vkGetSwapchainImagesKHR(createInfo.device->GetDevice(), swapchain, &swapchainImageCount, nullptr);
@@ -113,6 +116,19 @@ void Display::CreateSwapchainImageViews() {
 
 }
 
+VkExtent2D Display::GetSwapchainExtent() {
+	return surfaceCapabilities.currentExtent;
+}
+
+VkFormat Display::GetSwapchainImageFormat() {
+	return surfaceFormat.format;
+}
+
+std::vector<VkImageView> Display::GetSwapchainImageViews() {
+	return swapchainImageViews;
+}
+
+
 Display::Display(const Display& other) {
 	CopyFrom(other);
 }
@@ -135,6 +151,9 @@ void Display::CopyFrom(const Display& other) {
 
 Display::~Display() {
 	if (useCount.use_count() == 1) {
+		for (uint32_t i = 0; i < imageCount; i++) {
+			vkDestroyImageView(createInfo.device->GetDevice(), swapchainImageViews[i], nullptr);
+		}
 		vkDestroySwapchainKHR(createInfo.device->GetDevice(), swapchain, nullptr);
 		vkDestroySurfaceKHR(createInfo.instance->GetInstance(), surface, nullptr);
 	}

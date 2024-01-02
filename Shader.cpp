@@ -67,6 +67,14 @@ void Shader::CreateShaderModules() {
 	}
 }
 
+VkShaderModule Shader::GetVertexModule() {
+	return vertShaderModule;
+}
+
+VkShaderModule Shader::GetFragmentModule() {
+	return fragShaderModule;
+}
+
 void Shader::CopyFrom(const Shader& other) {
 	vertShaderModule = other.vertShaderModule;
 	fragShaderModule = other.fragShaderModule;

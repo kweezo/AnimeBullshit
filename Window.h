@@ -52,4 +52,7 @@ Functions such as vkAllocateCommandBuffers(),
 vkBeginCommandBuffer(), and vkEndCommandBuffer() should be called from the thread
 that fills the command buffer. These calls take measurable time on CPU and
 therefore should not be collected in a specific thread.
+
+am writing this just cause im bored lmao
+progress log:
 */
