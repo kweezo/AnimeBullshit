@@ -22,8 +22,14 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{51e0aa21-6079-4e81-a65e-a2f2dbc075d2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Renderer">
+    <Filter Include="Header Files\GameObject">
+      <UniqueIdentifier>{767e3eba-4454-42c8-8d20-83a36ecf2624}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Renderer">
       <UniqueIdentifier>{37fb9ac2-8f89-4892-88ba-ef1ee10a26e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Algebra">
+      <UniqueIdentifier>{605f5c6a-c45c-4743-83c7-2082fe0f2e13}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -48,6 +54,18 @@
     <ClCompile Include="Pipeline.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Algebra.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Instance.h">
@@ -63,10 +81,22 @@
       <Filter>Header Files\Display</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
-      <Filter>Renderer</Filter>
+      <Filter>Header Files\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Pipeline.h">
-      <Filter>Renderer</Filter>
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Algebra.h">
+      <Filter>Header Files\Algebra</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
