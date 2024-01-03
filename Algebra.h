@@ -35,7 +35,30 @@ public:
 	v2& operator-=(const v3& other);
 	v2& operator/=(const v3& other);
 	v2& operator*=(const v3& other);
-	v2& operator= (const v3& other);
+	v2& operator=(const v3& other);
+
+
+	v2& operator+(const v2& other);
+	v2& operator-(const v2& other);
+	v2& operator*(const v2& other);
+	v2& operator/(const v2& other);
+
+	v2& operator+(const v4& other);
+	v2& operator-(const v4& other);
+	v2& operator*(const v4& other);
+	v2& operator/(const v4& other);
+
+	v2& operator+(const float other);
+	v2& operator-(const float other);
+	v2& operator*(const float other);
+	v2& operator/(const float other);
+
+	v2& operator+(const v3& other);
+	v2& operator-(const v3& other);
+	v2& operator/(const v3& other);
+	v2& operator*(const v3& other);
+
+
 
 	float operator&(const v2& other); // DOT PRODUCT
 
@@ -83,6 +106,28 @@ public:
 	v3& operator*=(const v3& other);
 	v3& operator=(const v3& other);
 
+
+	v3& operator+(const v2& other);
+	v3& operator-(const v2& other);
+	v3& operator*(const v2& other);
+	v3& operator/(const v2& other);
+
+	v3& operator+(const v4& other);
+	v3& operator-(const v4& other);
+	v3& operator*(const v4& other);
+	v3& operator/(const v4& other);
+
+	v3& operator+(const float other);
+	v3& operator-(const float other);
+	v3& operator*(const float other);
+	v3& operator/(const float other);
+
+	v3& operator+(const v3& other);
+	v3& operator-(const v3& other);
+	v3& operator/(const v3& other);
+	v3& operator*(const v3& other);
+
+
 	float operator&(const v3& other); // DOT PRODUCT
 
 	bool operator==(const v3& other);
@@ -95,7 +140,7 @@ public:
 	float length() const;
 
 
-	v2 xy();
+	v2 xy() const;
 
 	float x, y, z;
 };
@@ -154,9 +199,9 @@ public:
 	float x, y, z, w;
 
 
-	v3 xyz();
-	v2 xy();
-	v2 zw();
+	v3 xyz() const;
+	v2 xy() const;
+	v2 zw() const;
 };
 
 class m4 {

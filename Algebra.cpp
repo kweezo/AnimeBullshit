@@ -209,6 +209,12 @@ v2& v2::operator=(const v3& other) {
 	return *this;
 }
 
+v2& v2::operator=(const v2& other) {
+	x = other.x;
+	y = other.y;
+	return *this;
+}
+
 float v2::length() const{
 	return sqrt(x * x + y * y);
 }
@@ -367,6 +373,13 @@ v3& v3::operator/=(const v3& other) {
 	x /= other.x;
 	y /= other.y;
 	z /= other.z;
+	return *this;
+}
+
+v3& v3::operator=(const v3& other) {
+	x = other.x;
+	y = other.y;
+	z = other.z;
 	return *this;
 }
 
@@ -579,19 +592,188 @@ float v4::operator&(const v4& other) {
 	return x * other.x + y * other.y + z * other.z + w * other.w;
 }
 
-v2 v3::xy() {
+v2& v2::operator+(const v2& other) {
+	v2 v = { x, y };
+	v += other;
+
+	return v;
+}
+
+v2& v2::operator-(const v2& other) {
+	v2 v = { x, y };
+	v -= other;
+
+	return v;
+}
+
+v2& v2::operator/(const v2& other) {
+	v2 v = { x, y };
+	v /= other;
+
+	return v;
+}
+
+v2& v2::operator*(const v2& other) {
+	v2 v = { x, y };
+	v *= other;
+
+	return v;
+}
+
+v2& v2::operator+(const v4& other) {
+	v2 v = { x, y };
+	v += other.xy();
+
+	return v;
+}
+
+v2& v2::operator-(const v4& other) {
+	v2 v = { x, y };
+	v -= other.xy();
+
+	return v;
+}
+
+v2& v2::operator/(const v4& other) {
+	v2 v = { x, y };
+	v /= other.xy();
+
+	return v;
+}
+
+v2& v2::operator*(const v4& other) {
+	v2 v = { x, y };
+	v *= other.xy();
+
+	return v;
+}
+
+v2& v2::operator+(const float other) {
+	v2 v = { x, y };
+	v += other;
+
+	return v;
+}
+
+v2& v2::operator-(const float other) {
+	v2 v = { x, y };
+	v -= other;
+
+	return v;
+}
+
+v2& v2::operator/(const float other) {
+	v2 v = { x, y };
+	v /= other;
+
+	return v;
+}
+
+v2& v2::operator*(const float other) {
+	v2 v = { x, y };
+	v *= other;
+
+	return v;
+}
+
+v2& v2::operator+(const v3& other) {
+	v2 v = { x, y };
+	v += other.xy();
+
+	return v;
+}
+
+v2& v2::operator-(const v3& other) {
+	v2 v = { x, y };
+	v -= other.xy();
+
+	return v;
+}
+
+v2& v2::operator*(const v3& other) {
+	v2 v = { x, y };
+	v *= other.xy();
+
+	return v;
+}
+
+v2& v2::operator/(const v3& other) {
+	v2 v = { x, y };
+	v /= other.xy();
+
+	return v;
+}
+
+v3& v3::operator+(const v2& other) {
+	v3 v = { x, y, z };
+	v += other;
+
+	return v;
+}
+
+v3& v3::operator-(const v2& other) {
+	v3 v = { x, y, z };
+	v -= other;
+
+	return v;
+}
+
+v3& v3::operator/(const v2& other) {
+	v3 v = { x, y, z };
+	v /= other;
+
+	return v;
+}
+
+v3& v3::operator*(const v2& other) {
+	v3 v = { x, y, z };
+	v *= other;
+
+	return v;
+}
+
+v3& v3::operator+(const v4& other) {
+	v3 v = { x, y, z };
+	v += other;
+
+	return v;
+}
+
+v3& v3::operator-(const v4& other) {
+	v3 v = { x, y, z };
+	v -= other;
+
+	return v;
+}
+
+v3& v3::operator*(const v4& other) {
+	v3 v = { x, y, z };
+	v *= other;
+
+	return v;
+}
+
+v3& v3::operator/(const v4& other) {
+	v3 v = { x, y, z };
+	v /= other;
+
+	return v;
+}
+
+
+v2 v3::xy() const{
 	return { x, y };
 }
 
-v3 v4::xyz() {
+v3 v4::xyz() const{
 	return { x, y, z };
 }
 
-v2 v4::xy() {
+v2 v4::xy() const{
 	return { x, y };
 }
 
-v2 v4::zw() {
+v2 v4::zw() const{
 	return { z, w };
 }
 
