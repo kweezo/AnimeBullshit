@@ -32,6 +32,7 @@ void Device::PickPhysicalDevice() {
 	uint32_t deviceCount;
 	vkEnumeratePhysicalDevices(instance, &deviceCount, nullptr);
 
+
 	std::vector<VkPhysicalDevice> devices(deviceCount);
 	vkEnumeratePhysicalDevices(instance, &deviceCount, devices.data());
 

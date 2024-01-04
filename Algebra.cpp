@@ -761,6 +761,7 @@ v3& v3::operator/(const v4& other) {
 }
 
 
+
 v2 v3::xy() const{
 	return { x, y };
 }

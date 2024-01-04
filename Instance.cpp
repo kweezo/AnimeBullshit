@@ -8,7 +8,7 @@ Instance::Instance() {
 
 	appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
 
-	appInfo.apiVersion = VK_VERSION_1_3;
+	appInfo.apiVersion = VK_VERSION_1_0;
 	appInfo.applicationVersion = VK_MAKE_VERSION(0, 0, 1);
 	appInfo.engineVersion = VK_MAKE_VERSION(0, 0, 1);
 
