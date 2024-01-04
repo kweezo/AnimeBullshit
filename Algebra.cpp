@@ -760,6 +760,197 @@ v3& v3::operator/(const v4& other) {
 	return v;
 }
 
+v3& v3::operator+(const float other) {
+	v3 v = { x, y, z };
+
+	v += other;
+
+	return v;
+}
+
+v3& v3::operator-(const float other) {
+	v3 v = { x, y, z };
+
+	v -= other;
+
+	return v;
+}
+
+v3& v3::operator/(const float other) {
+	v3 v = { x, y, z };
+
+	v /= other;
+
+	return v;
+}
+
+v3& v3::operator*(const float other) {
+	v3 v = { x, y, z };
+
+	v *= other;
+
+	return v;
+}
+
+v3& v3::operator+(const v3& other) {
+	v3 v = { x, y, z };
+
+	v += other;
+
+	return v;
+}
+
+v3& v3::operator-(const v3& other) {
+	v3 v = { x, y, z };
+
+	v -= other;
+
+	return v;
+}
+
+v3& v3::operator/(const v3& other) {
+	v3 v = { x, y, z };
+
+	v /= other;
+
+	return v;
+}
+
+v3& v3::operator*(const v3& other) {
+	v3 v = { x, y, z };
+
+	v *= other;
+
+	return v;
+}
+
+v4& v4::operator+(const v2& other) {
+	v4 v = { x, y, z, w };
+
+	v += other;
+
+	return v;
+}
+
+v4& v4::operator-(const v2& other) {
+	v4 v = { x, y, z, w };
+
+	v -= other;
+
+	return v;
+}
+
+v4& v4::operator/(const v2& other) {
+	v4 v = { x, y, z, w };
+
+	v /= other;
+
+	return v;
+}
+
+v4& v4::operator*(const v2& other) {
+	v4 v = { x, y, z, w };
+
+	v *= other;
+
+	return v;
+}
+
+v4& v4::operator+(const v4& other) {
+	v4 v = { x, y, z, w };
+
+	v += other;
+
+	return v;
+}
+
+v4& v4::operator-(const v4& other) {
+	v4 v = { x, y, z, w };
+
+	v -= other;
+
+	return v;
+}
+
+v4& v4::operator*(const v4& other) {
+	v4 v = { x, y, z, w };
+
+	v *= other;
+
+	return v;
+}
+
+v4& v4::operator/(const v4& other) {
+	v4 v = { x, y, z, w };
+
+	v /= other;
+
+	return v;
+}
+
+v4& v4::operator+(const float other) {
+	v4 v = { x, y, z, w };
+
+	v += other;
+
+	return v;
+}
+
+v4& v4::operator-(const float other) {
+	v4 v = { x, y, z, w };
+
+	v -= other;
+
+	return v;
+}
+
+v4& v4::operator*(const float other) {
+	v4 v = { x, y, z, w };
+
+	v *= other;
+
+	return v;
+}
+
+v4& v4::operator/(const float other) {
+	v4 v = { x, y, z, w };
+
+	v /= other;
+
+	return v;
+}
+
+v4& v4::operator+(const v3& other) {
+	v4 v = { x, y, z, w };
+
+	v += other;
+
+	return v;
+}
+
+v4& v4::operator-(const v3& other) {
+	v4 v = { x, y, z, w };
+
+	v -= other;
+
+	return v;
+}
+
+v4& v4::operator*(const v3& other) {
+	v4 v = { x, y, z, w };
+
+	v *= other;
+
+	return v;
+}
+
+v4& v4::operator/(const v3& other) {
+	v4 v = { x, y, z, w };
+
+	v /= other;
+
+	return v;
+}
 
 
 v2 v3::xy() const{
@@ -815,4 +1006,12 @@ m4& m4::operator*(const m4& other) {
 		}
 	}
 	return m;
+}
+
+m4& m4::operator*=(const m4& other) {
+	m4 m = this[0] * other;
+
+	memcpy(dat, other.dat, 16 * sizeof(float));
+
+	return *this;
 }

@@ -4,6 +4,7 @@
 #include "Display.h"
 #include "Shader.h"
 #include "Pipeline.h"
+#include "Algebra.h"
 
 int main(int argc, char** argv) {
 	WindowCreateInfo windowCreateInfo{};
@@ -41,9 +42,20 @@ int main(int argc, char** argv) {
 
 	Pipeline pipeline = Pipeline(pipelineCreateInfo);
 
+	m4 m1 = { 1.0f };
+	m4 m2= { 1.0f };
+
+	m2 *= m1;
+
+	for (int i = 0; i < 16; i++) {
+		std::cout << m2.dat[i] << std::endl;
+	}
+
 	while (true) {
 		if (window.UpdateWindow()) {
 			break;
 		}
 	}
+
+	return 0;
 }

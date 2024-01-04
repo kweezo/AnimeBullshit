@@ -182,6 +182,30 @@ public:
 
 	v4& operator*=(const m4& other);
 
+
+	v4& operator+(const v2& other);
+	v4& operator-(const v2& other);
+	v4& operator*(const v2& other);
+	v4& operator/(const v2& other);
+
+	v4& operator+(const v4& other);
+	v4& operator-(const v4& other);
+	v4& operator*(const v4& other);
+	v4& operator/(const v4& other);
+
+	v4& operator+(const float other);
+	v4& operator-(const float other);
+	v4& operator*(const float other);
+	v4& operator/(const float other);
+
+	v4& operator+(const v3& other);
+	v4& operator-(const v3& other);
+	v4& operator/(const v3& other);
+	v4& operator*(const v3& other);
+
+
+
+
 	float operator&(const v4& other); // DOT PRODUCT
 
 	bool operator==(const v4& other);
@@ -212,6 +236,7 @@ public:
 	v4& operator*(const v4& other);
 
 	m4& operator*(const m4& other);
+	m4& operator*=(const m4& other);
 
 	float dat[16];
 };
