@@ -1,6 +1,8 @@
 #pragma once
 
 #include <cmath>
+#include <array>
+#include <iostream>
 
 class v2;
 class v3;
@@ -13,50 +15,50 @@ public:
 	v2(float x, float y);
 	v2(int x, int y);
 
-	v2& operator+=(const v2& other);
-	v2& operator-=(const v2& other);
-	v2& operator*=(const v2& other);
-	v2& operator/=(const v2& other);
-	v2& operator=(const v2& other);
+	v2 operator+=(const v2& other);
+	v2 operator-=(const v2& other);
+	v2 operator*=(const v2& other);
+	v2 operator/=(const v2& other);
+	v2 operator=(const v2& other);
 
-	v2& operator=(const v4& other);
-	v2& operator+=(const v4& other);
-	v2& operator-=(const v4& other);
-	v2& operator*=(const v4& other);
-	v2& operator/=(const v4& other);
+	v2 operator=(const v4& other);
+	v2 operator+=(const v4& other);
+	v2 operator-=(const v4& other);
+	v2 operator*=(const v4& other);
+	v2 operator/=(const v4& other);
 
-	v2& operator=(const float other);
-	v2& operator+=(const float other);
-	v2& operator-=(const float other);
-	v2& operator*=(const float other);
-	v2& operator/=(const float other);
+	v2 operator=(const float other);
+	v2 operator+=(const float other);
+	v2 operator-=(const float other);
+	v2 operator*=(const float other);
+	v2 operator/=(const float other);
 
-	v2& operator+=(const v3& other);
-	v2& operator-=(const v3& other);
-	v2& operator/=(const v3& other);
-	v2& operator*=(const v3& other);
-	v2& operator=(const v3& other);
+	v2 operator+=(const v3& other);
+	v2 operator-=(const v3& other);
+	v2 operator/=(const v3& other);
+	v2 operator*=(const v3& other);
+	v2 operator=(const v3& other);
 
 
-	v2& operator+(const v2& other);
-	v2& operator-(const v2& other);
-	v2& operator*(const v2& other);
-	v2& operator/(const v2& other);
+	v2 operator+(const v2& other);
+	v2 operator-(const v2& other);
+	v2 operator*(const v2& other);
+	v2 operator/(const v2& other);
 
-	v2& operator+(const v4& other);
-	v2& operator-(const v4& other);
-	v2& operator*(const v4& other);
-	v2& operator/(const v4& other);
+	v2 operator+(const v4& other);
+	v2 operator-(const v4& other);
+	v2 operator*(const v4& other);
+	v2 operator/(const v4& other);
 
-	v2& operator+(const float other);
-	v2& operator-(const float other);
-	v2& operator*(const float other);
-	v2& operator/(const float other);
+	v2 operator+(const float other);
+	v2 operator-(const float other);
+	v2 operator*(const float other);
+	v2 operator/(const float other);
 
-	v2& operator+(const v3& other);
-	v2& operator-(const v3& other);
-	v2& operator/(const v3& other);
-	v2& operator*(const v3& other);
+	v2 operator+(const v3& other);
+	v2 operator-(const v3& other);
+	v2 operator/(const v3& other);
+	v2 operator*(const v3& other);
 
 
 
@@ -82,50 +84,50 @@ public:
 	v3(v2 v, float z);
 	v3(float x, v2 v);
 
-	v3& operator=(const v2& other);
-	v3& operator+=(const v2& other);
-	v3& operator-=(const v2& other);
-	v3& operator*=(const v2& other);
-	v3& operator/=(const v2& other);
+	v3 operator=(const v2& other);
+	v3 operator+=(const v2& other);
+	v3 operator-=(const v2& other);
+	v3 operator*=(const v2& other);
+	v3 operator/=(const v2& other);
 
-	v3& operator=(const v4& other);
-	v3& operator+=(const v4& other);
-	v3& operator-=(const v4& other);
-	v3& operator*=(const v4& other);
-	v3& operator/=(const v4& other);
+	v3 operator=(const v4& other);
+	v3 operator+=(const v4& other);
+	v3 operator-=(const v4& other);
+	v3 operator*=(const v4& other);
+	v3 operator/=(const v4& other);
 
-	v3& operator=(const float other);
-	v3& operator+=(const float other);
-	v3& operator-=(const float other);
-	v3& operator*=(const float other);
-	v3& operator/=(const float other);
+	v3 operator=(const float other);
+	v3 operator+=(const float other);
+	v3 operator-=(const float other);
+	v3 operator*=(const float other);
+	v3 operator/=(const float other);
 
-	v3& operator+=(const v3& other);
-	v3& operator-=(const v3& other);
-	v3& operator/=(const v3& other);
-	v3& operator*=(const v3& other);
-	v3& operator=(const v3& other);
+	v3 operator+=(const v3& other);
+	v3 operator-=(const v3& other);
+	v3 operator/=(const v3& other);
+	v3 operator*=(const v3& other);
+	v3 operator=(const v3& other);
 
 
-	v3& operator+(const v2& other);
-	v3& operator-(const v2& other);
-	v3& operator*(const v2& other);
-	v3& operator/(const v2& other);
+	v3 operator+(const v2& other);
+	v3 operator-(const v2& other);
+	v3 operator*(const v2& other);
+	v3 operator/(const v2& other);
 
-	v3& operator+(const v4& other);
-	v3& operator-(const v4& other);
-	v3& operator*(const v4& other);
-	v3& operator/(const v4& other);
+	v3 operator+(const v4& other);
+	v3 operator-(const v4& other);
+	v3 operator*(const v4& other);
+	v3 operator/(const v4& other);
 
-	v3& operator+(const float other);
-	v3& operator-(const float other);
-	v3& operator*(const float other);
-	v3& operator/(const float other);
+	v3 operator+(const float other);
+	v3 operator-(const float other);
+	v3 operator*(const float other);
+	v3 operator/(const float other);
 
-	v3& operator+(const v3& other);
-	v3& operator-(const v3& other);
-	v3& operator/(const v3& other);
-	v3& operator*(const v3& other);
+	v3 operator+(const v3& other);
+	v3 operator-(const v3& other);
+	v3 operator/(const v3& other);
+	v3 operator*(const v3& other);
 
 
 	float operator&(const v3& other); // DOT PRODUCT
@@ -156,52 +158,52 @@ public:
 	v4(v3 v, float w);
 	v4(float x, v3 v);
 
-	v4& operator=(const v2& other);
-	v4& operator+=(const v2& other);
-	v4& operator-=(const v2& other);
-	v4& operator*=(const v2& other);
-	v4& operator/=(const v2& other);
+	v4 operator=(const v2& other);
+	v4 operator+=(const v2& other);
+	v4 operator-=(const v2& other);
+	v4 operator*=(const v2& other);
+	v4 operator/=(const v2& other);
 
-	v4& operator=(const v3& other);
-	v4& operator+=(const v3& other);
-	v4& operator-=(const v3& other);
-	v4& operator*=(const v3& other);
-	v4& operator/=(const v3& other);
+	v4 operator=(const v3& other);
+	v4 operator+=(const v3& other);
+	v4 operator-=(const v3& other);
+	v4 operator*=(const v3& other);
+	v4 operator/=(const v3& other);
 
-	v4& operator=(const float other);
-	v4& operator+=(const float other);
-	v4& operator-=(const float other);
-	v4& operator*=(const float other);
-	v4& operator/=(const float other);
+	v4 operator=(const float other);
+	v4 operator+=(const float other);
+	v4 operator-=(const float other);
+	v4 operator*=(const float other);
+	v4 operator/=(const float other);
 
-	v4& operator+=(const v4& other);
-	v4& operator-=(const v4& other);
-	v4& operator/=(const v4& other);
-	v4& operator*=(const v4& other);
-	v4& operator=(const v4& other);
+	v4 operator+=(const v4& other);
+	v4 operator-=(const v4& other);
+	v4 operator/=(const v4& other);
+	v4 operator*=(const v4& other);
+	v4 operator=(const v4& other);
 
-	v4& operator*=(const m4& other);
+	v4 operator*=(const m4& other);
 
 
-	v4& operator+(const v2& other);
-	v4& operator-(const v2& other);
-	v4& operator*(const v2& other);
-	v4& operator/(const v2& other);
+	v4 operator+(const v2& other);
+	v4 operator-(const v2& other);
+	v4 operator*(const v2& other);
+	v4 operator/(const v2& other);
 
-	v4& operator+(const v4& other);
-	v4& operator-(const v4& other);
-	v4& operator*(const v4& other);
-	v4& operator/(const v4& other);
+	v4 operator+(const v4& other);
+	v4 operator-(const v4& other);
+	v4 operator*(const v4& other);
+	v4 operator/(const v4& other);
 
-	v4& operator+(const float other);
-	v4& operator-(const float other);
-	v4& operator*(const float other);
-	v4& operator/(const float other);
+	v4 operator+(const float other);
+	v4 operator-(const float other);
+	v4 operator*(const float other);
+	v4 operator/(const float other);
 
-	v4& operator+(const v3& other);
-	v4& operator-(const v3& other);
-	v4& operator/(const v3& other);
-	v4& operator*(const v3& other);
+	v4 operator+(const v3& other);
+	v4 operator-(const v3& other);
+	v4 operator/(const v3& other);
+	v4 operator*(const v3& other);
 
 
 
@@ -233,10 +235,10 @@ class m4 {
 public:
 	m4(float val);
 
-	v4& operator*(const v4& other);
+	v4 operator*(const v4& other);
 
-	m4& operator*(const m4& other);
-	m4& operator*=(const m4& other);
+	m4 operator*(const m4& other);
+	m4 operator*=(const m4& other);
 
-	float dat[16];
+	std::array<float, 16> dat;
 };

@@ -95,121 +95,121 @@ m4::m4(float scalar) {
 	for (unsigned char i = 0; i < 3; i++) { dat[i*5] = scalar; }
 }
 
-v2& v2::operator+=(const v2& other) {
+v2 v2::operator+=(const v2& other) {
 	x += other.x;
 	y += other.y;
 	return *this;
 }
 
-v2& v2::operator-=(const v2& other) {
+v2 v2::operator-=(const v2& other) {
 	x -= other.x;
 	y -= other.y;
 	return *this;
 }
 
-v2& v2::operator*=(const v2& other) {
+v2 v2::operator*=(const v2& other) {
 	x *= other.x;
 	y *= other.y;
 	return *this;
 }
 
-v2& v2::operator/=(const v2& other) {
+v2 v2::operator/=(const v2& other) {
 	x /= other.x;
 	y /= other.y;
 	return *this;
 }
 
-v2& v2::operator+=(const v4& other) {
+v2 v2::operator+=(const v4& other) {
 	x += other.x;
 	y += other.y;
 	return *this;
 }
 
-v2& v2::operator-=(const v4& other) {
+v2 v2::operator-=(const v4& other) {
 	x -= other.x;
 	y -= other.y;
 	return *this;
 }
 
-v2& v2::operator*=(const v4& other) {
+v2 v2::operator*=(const v4& other) {
 	x *= other.x;
 	y *= other.y;
 	return *this;
 }
 
-v2& v2::operator/=(const v4& other) {
+v2 v2::operator/=(const v4& other) {
 	x /= other.x;
 	y /= other.y;
 	return *this;
 }
 
-v2& v2::operator=(const v4& other) {
+v2 v2::operator=(const v4& other) {
 	x = other.x;
 	y = other.y;
 	return *this;
 }
 
-v2& v2::operator+=(float other) {
+v2 v2::operator+=(float other) {
 	x += other;
 	y += other;
 	return *this;
 }
 
-v2& v2::operator-=(float other) {
+v2 v2::operator-=(float other) {
 	x -= other;
 	y -= other;
 	return *this;
 }
 
-v2& v2::operator*=(float other) {
+v2 v2::operator*=(float other) {
 	x *= other;
 	y *= other;
 	return *this;
 }
 
-v2& v2::operator/=(float other) {
+v2 v2::operator/=(float other) {
 	x /= other;
 	y /= other;
 	return *this;
 }
 
-v2& v2::operator=(float other) {
+v2 v2::operator=(float other) {
 	x = other;
 	y = other;
 	return *this;
 }
 
-v2& v2::operator+=(const v3& other) {
+v2 v2::operator+=(const v3& other) {
 	x += other.x;
 	y += other.y;
 	return *this;
 }
 
-v2& v2::operator-=(const v3& other) {
+v2 v2::operator-=(const v3& other) {
 	x -= other.x;
 	y -= other.y;
 	return *this;
 }
 
-v2& v2::operator*=(const v3& other) {
+v2 v2::operator*=(const v3& other) {
 	x *= other.x;
 	y *= other.y;
 	return *this;
 }
 
-v2& v2::operator/=(const v3& other) {
+v2 v2::operator/=(const v3& other) {
 	x /= other.x;
 	y /= other.y;
 	return *this;
 }
 
-v2& v2::operator=(const v3& other) {
+v2 v2::operator=(const v3& other) {
 	x = other.x;
 	y = other.y;
 	return *this;
 }
 
-v2& v2::operator=(const v2& other) {
+v2 v2::operator=(const v2& other) {
 	x = other.x;
 	y = other.y;
 	return *this;
@@ -247,136 +247,136 @@ float v2::operator&(const v2& other) {
 	return x * other.x + y * other.y;
 }
 
-v3& v3::operator+=(const v2& other) {
+v3 v3::operator+=(const v2& other) {
 	x += other.x;
 	y += other.y;
 	return *this;
 }
 
-v3& v3::operator-=(const v2& other) {
+v3 v3::operator-=(const v2& other) {
 	x -= other.x;
 	y -= other.y;
 	return *this;
 }
 
-v3& v3::operator*=(const v2& other) {
+v3 v3::operator*=(const v2& other) {
 	x *= other.x;
 	y *= other.y;
 	return *this;
 }
 
-v3& v3::operator/=(const v2& other) {
+v3 v3::operator/=(const v2& other) {
 	x /= other.x;
 	y /= other.y;
 	return *this;
 }
 
-v3& v3::operator=(const v2& other) {
+v3 v3::operator=(const v2& other) {
 	x = other.x;
 	y = other.y;
 	z = 0.0f;
 	return *this;
 }
 
-v3& v3::operator+=(const v4& other) {
+v3 v3::operator+=(const v4& other) {
 	x += other.x;
 	y += other.y;
 	z += other.z;
 	return *this;
 }
 
-v3& v3::operator-=(const v4& other) {
+v3 v3::operator-=(const v4& other) {
 	x -= other.x;
 	y -= other.y;
 	z -= other.z;
 	return *this;
 }
 
-v3& v3::operator*=(const v4& other) {
+v3 v3::operator*=(const v4& other) {
 	x *= other.x;
 	y *= other.y;
 	z *= other.z;
 	return *this;
 }
 
-v3& v3::operator/=(const v4& other) {
+v3 v3::operator/=(const v4& other) {
 	x /= other.x;
 	y /= other.y;
 	z /= other.z;
 	return *this;
 }
 
-v3& v3::operator=(const v4& other) {
+v3 v3::operator=(const v4& other) {
 	x = other.x;
 	y = other.y;
 	z = other.z;
 	return *this;
 }
 
-v3& v3::operator+=(float other) {
+v3 v3::operator+=(float other) {
 	x += other;
 	y += other;
 	z += other;
 	return *this;
 }
 
-v3& v3::operator-=(float other) {
+v3 v3::operator-=(float other) {
 	x -= other;
 	y -= other;
 	z -= other;
 	return *this;
 }
 
-v3& v3::operator*=(float other) {
+v3 v3::operator*=(float other) {
 	x *= other;
 	y *= other;
 	z *= other;
 	return *this;
 }
 
-v3& v3::operator/=(float other) {
+v3 v3::operator/=(float other) {
 	x /= other;
 	y /= other;
 	z /= other;
 	return *this;
 }
 
-v3& v3::operator=(float other) {
+v3 v3::operator=(float other) {
 	x = other;
 	y = other;
 	z = other;
 	return *this;
 }
 
-v3& v3::operator+=(const v3& other) {
+v3 v3::operator+=(const v3& other) {
 	x += other.x;
 	y += other.y;
 	z += other.z;
 	return *this;
 }
 
-v3& v3::operator-=(const v3& other) {
+v3 v3::operator-=(const v3& other) {
 	x -= other.x;
 	y -= other.y;
 	z -= other.z;
 	return *this;
 }
 
-v3& v3::operator*=(const v3& other) {
+v3 v3::operator*=(const v3& other) {
 	x *= other.x;
 	y *= other.y;
 	z *= other.z;
 	return *this;
 }
 
-v3& v3::operator/=(const v3& other) {
+v3 v3::operator/=(const v3& other) {
 	x /= other.x;
 	y /= other.y;
 	z /= other.z;
 	return *this;
 }
 
-v3& v3::operator=(const v3& other) {
+v3 v3::operator=(const v3& other) {
 	x = other.x;
 	y = other.y;
 	z = other.z;
@@ -415,31 +415,31 @@ float v3::operator&(const v3& other) {
 	return x * other.x + y * other.y + z * other.z;
 }
 
-v4& v4::operator+=(const v2& other) {
+v4 v4::operator+=(const v2& other) {
 	x += other.x;
 	y += other.y;
 	return *this;
 }
 
-v4& v4::operator-=(const v2& other) {
+v4 v4::operator-=(const v2& other) {
 	x -= other.x;
 	y -= other.y;
 	return *this;
 }
 
-v4& v4::operator*=(const v2& other) {
+v4 v4::operator*=(const v2& other) {
 	x *= other.x;
 	y *= other.y;
 	return *this;
 }
 
-v4& v4::operator/=(const v2& other) {
+v4 v4::operator/=(const v2& other) {
 	x /= other.x;
 	y /= other.y;
 	return *this;
 }
 
-v4& v4::operator=(const v2& other) {
+v4 v4::operator=(const v2& other) {
 	x = other.x;
 	y = other.y;
 	z = 0.0f;
@@ -447,7 +447,7 @@ v4& v4::operator=(const v2& other) {
 	return *this;
 }
 
-v4& v4::operator+=(const v4& other) {
+v4 v4::operator+=(const v4& other) {
 	x += other.x;
 	y += other.y;
 	z += other.z;
@@ -455,7 +455,7 @@ v4& v4::operator+=(const v4& other) {
 	return *this;
 }
 
-v4& v4::operator-=(const v4& other) {
+v4 v4::operator-=(const v4& other) {
 	x -= other.x;
 	y -= other.y;
 	z -= other.z;
@@ -463,7 +463,7 @@ v4& v4::operator-=(const v4& other) {
 	return *this;
 }
 
-v4& v4::operator*=(const v4& other) {
+v4 v4::operator*=(const v4& other) {
 	x *= other.x;
 	y *= other.y;
 	z *= other.z;
@@ -471,7 +471,7 @@ v4& v4::operator*=(const v4& other) {
 	return *this;
 }
 
-v4& v4::operator/=(const v4& other) {
+v4 v4::operator/=(const v4& other) {
 	x /= other.x;
 	y /= other.y;
 	z /= other.z;
@@ -479,7 +479,7 @@ v4& v4::operator/=(const v4& other) {
 	return *this;
 }
 
-v4& v4::operator=(const v4& other) {
+v4 v4::operator=(const v4& other) {
 	x = other.x;
 	y = other.y;
 	z = other.z;
@@ -487,7 +487,7 @@ v4& v4::operator=(const v4& other) {
 	return *this;
 }
 
-v4& v4::operator+=(float other) {
+v4 v4::operator+=(float other) {
 	x += other;
 	y += other;
 	z += other;
@@ -495,7 +495,7 @@ v4& v4::operator+=(float other) {
 	return *this;
 }
 
-v4& v4::operator-=(float other) {
+v4 v4::operator-=(float other) {
 	x -= other;
 	y -= other;
 	z -= other;
@@ -503,7 +503,7 @@ v4& v4::operator-=(float other) {
 	return *this;
 }
 
-v4& v4::operator*=(float other) {
+v4 v4::operator*=(float other) {
 	x *= other;
 	y *= other;
 	z *= other;
@@ -511,7 +511,7 @@ v4& v4::operator*=(float other) {
 	return *this;
 }
 
-v4& v4::operator/=(float other) {
+v4 v4::operator/=(float other) {
 	x /= other;
 	y /= other;
 	z /= other;
@@ -519,7 +519,7 @@ v4& v4::operator/=(float other) {
 	return *this;
 }
 
-v4& v4::operator=(float other) {
+v4 v4::operator=(float other) {
 	x = other;
 	y = other;
 	z = other;
@@ -527,33 +527,33 @@ v4& v4::operator=(float other) {
 	return *this;
 }
 
-v4& v4::operator+=(const v3& other) {
+v4 v4::operator+=(const v3& other) {
 	x += other.x;
 	y += other.y;
 	z += other.z;
 	return *this;
 }
 
-v4& v4::operator-=(const v3& other) {
+v4 v4::operator-=(const v3& other) {
 	x -= other.x;
 	y -= other.y;
 	z -= other.z;
 	return *this;
 }
 
-v4& v4::operator*=(const v3& other) {
+v4 v4::operator*=(const v3& other) {
 	x *= other.x;
 	y *= other.y;
 	z *= other.z;
 	return *this;
 }
-v4& v4::operator/=(const v3& other) {
+v4 v4::operator/=(const v3& other) {
 	x /= other.x;
 	y /= other.y;
 	z /= other.z;
 	return *this;
 }
-v4& v4::operator=(const v3& other) {
+v4 v4::operator=(const v3& other) {
 	x = other.x;
 	y = other.y;
 	z = other.z;
@@ -592,175 +592,175 @@ float v4::operator&(const v4& other) {
 	return x * other.x + y * other.y + z * other.z + w * other.w;
 }
 
-v2& v2::operator+(const v2& other) {
+v2 v2::operator+(const v2& other) {
 	v2 v = { x, y };
 	v += other;
 
 	return v;
 }
 
-v2& v2::operator-(const v2& other) {
+v2 v2::operator-(const v2& other) {
 	v2 v = { x, y };
 	v -= other;
 
 	return v;
 }
 
-v2& v2::operator/(const v2& other) {
+v2 v2::operator/(const v2& other) {
 	v2 v = { x, y };
 	v /= other;
 
 	return v;
 }
 
-v2& v2::operator*(const v2& other) {
+v2 v2::operator*(const v2& other) {
 	v2 v = { x, y };
 	v *= other;
 
 	return v;
 }
 
-v2& v2::operator+(const v4& other) {
+v2 v2::operator+(const v4& other) {
 	v2 v = { x, y };
 	v += other.xy();
 
 	return v;
 }
 
-v2& v2::operator-(const v4& other) {
+v2 v2::operator-(const v4& other) {
 	v2 v = { x, y };
 	v -= other.xy();
 
 	return v;
 }
 
-v2& v2::operator/(const v4& other) {
+v2 v2::operator/(const v4& other) {
 	v2 v = { x, y };
 	v /= other.xy();
 
 	return v;
 }
 
-v2& v2::operator*(const v4& other) {
+v2 v2::operator*(const v4& other) {
 	v2 v = { x, y };
 	v *= other.xy();
 
 	return v;
 }
 
-v2& v2::operator+(const float other) {
+v2 v2::operator+(const float other) {
 	v2 v = { x, y };
 	v += other;
 
 	return v;
 }
 
-v2& v2::operator-(const float other) {
+v2 v2::operator-(const float other) {
 	v2 v = { x, y };
 	v -= other;
 
 	return v;
 }
 
-v2& v2::operator/(const float other) {
+v2 v2::operator/(const float other) {
 	v2 v = { x, y };
 	v /= other;
 
 	return v;
 }
 
-v2& v2::operator*(const float other) {
+v2 v2::operator*(const float other) {
 	v2 v = { x, y };
 	v *= other;
 
 	return v;
 }
 
-v2& v2::operator+(const v3& other) {
+v2 v2::operator+(const v3& other) {
 	v2 v = { x, y };
 	v += other.xy();
 
 	return v;
 }
 
-v2& v2::operator-(const v3& other) {
+v2 v2::operator-(const v3& other) {
 	v2 v = { x, y };
 	v -= other.xy();
 
 	return v;
 }
 
-v2& v2::operator*(const v3& other) {
+v2 v2::operator*(const v3& other) {
 	v2 v = { x, y };
 	v *= other.xy();
 
 	return v;
 }
 
-v2& v2::operator/(const v3& other) {
+v2 v2::operator/(const v3& other) {
 	v2 v = { x, y };
 	v /= other.xy();
 
 	return v;
 }
 
-v3& v3::operator+(const v2& other) {
+v3 v3::operator+(const v2& other) {
 	v3 v = { x, y, z };
 	v += other;
 
 	return v;
 }
 
-v3& v3::operator-(const v2& other) {
+v3 v3::operator-(const v2& other) {
 	v3 v = { x, y, z };
 	v -= other;
 
 	return v;
 }
 
-v3& v3::operator/(const v2& other) {
+v3 v3::operator/(const v2& other) {
 	v3 v = { x, y, z };
 	v /= other;
 
 	return v;
 }
 
-v3& v3::operator*(const v2& other) {
+v3 v3::operator*(const v2& other) {
 	v3 v = { x, y, z };
 	v *= other;
 
 	return v;
 }
 
-v3& v3::operator+(const v4& other) {
+v3 v3::operator+(const v4& other) {
 	v3 v = { x, y, z };
 	v += other;
 
 	return v;
 }
 
-v3& v3::operator-(const v4& other) {
+v3 v3::operator-(const v4& other) {
 	v3 v = { x, y, z };
 	v -= other;
 
 	return v;
 }
 
-v3& v3::operator*(const v4& other) {
+v3 v3::operator*(const v4& other) {
 	v3 v = { x, y, z };
 	v *= other;
 
 	return v;
 }
 
-v3& v3::operator/(const v4& other) {
+v3 v3::operator/(const v4& other) {
 	v3 v = { x, y, z };
 	v /= other;
 
 	return v;
 }
 
-v3& v3::operator+(const float other) {
+v3 v3::operator+(const float other) {
 	v3 v = { x, y, z };
 
 	v += other;
@@ -768,7 +768,7 @@ v3& v3::operator+(const float other) {
 	return v;
 }
 
-v3& v3::operator-(const float other) {
+v3 v3::operator-(const float other) {
 	v3 v = { x, y, z };
 
 	v -= other;
@@ -776,39 +776,7 @@ v3& v3::operator-(const float other) {
 	return v;
 }
 
-v3& v3::operator/(const float other) {
-	v3 v = { x, y, z };
-
-	v /= other;
-
-	return v;
-}
-
-v3& v3::operator*(const float other) {
-	v3 v = { x, y, z };
-
-	v *= other;
-
-	return v;
-}
-
-v3& v3::operator+(const v3& other) {
-	v3 v = { x, y, z };
-
-	v += other;
-
-	return v;
-}
-
-v3& v3::operator-(const v3& other) {
-	v3 v = { x, y, z };
-
-	v -= other;
-
-	return v;
-}
-
-v3& v3::operator/(const v3& other) {
+v3 v3::operator/(const float other) {
 	v3 v = { x, y, z };
 
 	v /= other;
@@ -816,7 +784,7 @@ v3& v3::operator/(const v3& other) {
 	return v;
 }
 
-v3& v3::operator*(const v3& other) {
+v3 v3::operator*(const float other) {
 	v3 v = { x, y, z };
 
 	v *= other;
@@ -824,7 +792,39 @@ v3& v3::operator*(const v3& other) {
 	return v;
 }
 
-v4& v4::operator+(const v2& other) {
+v3 v3::operator+(const v3& other) {
+	v3 v = { x, y, z };
+
+	v += other;
+
+	return v;
+}
+
+v3 v3::operator-(const v3& other) {
+	v3 v = { x, y, z };
+
+	v -= other;
+
+	return v;
+}
+
+v3 v3::operator/(const v3& other) {
+	v3 v = { x, y, z };
+
+	v /= other;
+
+	return v;
+}
+
+v3 v3::operator*(const v3& other) {
+	v3 v = { x, y, z };
+
+	v *= other;
+
+	return v;
+}
+
+v4 v4::operator+(const v2& other) {
 	v4 v = { x, y, z, w };
 
 	v += other;
@@ -832,7 +832,7 @@ v4& v4::operator+(const v2& other) {
 	return v;
 }
 
-v4& v4::operator-(const v2& other) {
+v4 v4::operator-(const v2& other) {
 	v4 v = { x, y, z, w };
 
 	v -= other;
@@ -840,7 +840,7 @@ v4& v4::operator-(const v2& other) {
 	return v;
 }
 
-v4& v4::operator/(const v2& other) {
+v4 v4::operator/(const v2& other) {
 	v4 v = { x, y, z, w };
 
 	v /= other;
@@ -848,7 +848,7 @@ v4& v4::operator/(const v2& other) {
 	return v;
 }
 
-v4& v4::operator*(const v2& other) {
+v4 v4::operator*(const v2& other) {
 	v4 v = { x, y, z, w };
 
 	v *= other;
@@ -856,7 +856,7 @@ v4& v4::operator*(const v2& other) {
 	return v;
 }
 
-v4& v4::operator+(const v4& other) {
+v4 v4::operator+(const v4& other) {
 	v4 v = { x, y, z, w };
 
 	v += other;
@@ -864,7 +864,7 @@ v4& v4::operator+(const v4& other) {
 	return v;
 }
 
-v4& v4::operator-(const v4& other) {
+v4 v4::operator-(const v4& other) {
 	v4 v = { x, y, z, w };
 
 	v -= other;
@@ -872,7 +872,7 @@ v4& v4::operator-(const v4& other) {
 	return v;
 }
 
-v4& v4::operator*(const v4& other) {
+v4 v4::operator*(const v4& other) {
 	v4 v = { x, y, z, w };
 
 	v *= other;
@@ -880,7 +880,7 @@ v4& v4::operator*(const v4& other) {
 	return v;
 }
 
-v4& v4::operator/(const v4& other) {
+v4 v4::operator/(const v4& other) {
 	v4 v = { x, y, z, w };
 
 	v /= other;
@@ -888,7 +888,7 @@ v4& v4::operator/(const v4& other) {
 	return v;
 }
 
-v4& v4::operator+(const float other) {
+v4 v4::operator+(const float other) {
 	v4 v = { x, y, z, w };
 
 	v += other;
@@ -896,7 +896,7 @@ v4& v4::operator+(const float other) {
 	return v;
 }
 
-v4& v4::operator-(const float other) {
+v4 v4::operator-(const float other) {
 	v4 v = { x, y, z, w };
 
 	v -= other;
@@ -904,7 +904,7 @@ v4& v4::operator-(const float other) {
 	return v;
 }
 
-v4& v4::operator*(const float other) {
+v4 v4::operator*(const float other) {
 	v4 v = { x, y, z, w };
 
 	v *= other;
@@ -912,7 +912,7 @@ v4& v4::operator*(const float other) {
 	return v;
 }
 
-v4& v4::operator/(const float other) {
+v4 v4::operator/(const float other) {
 	v4 v = { x, y, z, w };
 
 	v /= other;
@@ -920,7 +920,7 @@ v4& v4::operator/(const float other) {
 	return v;
 }
 
-v4& v4::operator+(const v3& other) {
+v4 v4::operator+(const v3& other) {
 	v4 v = { x, y, z, w };
 
 	v += other;
@@ -928,7 +928,7 @@ v4& v4::operator+(const v3& other) {
 	return v;
 }
 
-v4& v4::operator-(const v3& other) {
+v4 v4::operator-(const v3& other) {
 	v4 v = { x, y, z, w };
 
 	v -= other;
@@ -936,7 +936,7 @@ v4& v4::operator-(const v3& other) {
 	return v;
 }
 
-v4& v4::operator*(const v3& other) {
+v4 v4::operator*(const v3& other) {
 	v4 v = { x, y, z, w };
 
 	v *= other;
@@ -944,7 +944,7 @@ v4& v4::operator*(const v3& other) {
 	return v;
 }
 
-v4& v4::operator/(const v3& other) {
+v4 v4::operator/(const v3& other) {
 	v4 v = { x, y, z, w };
 
 	v /= other;
@@ -969,7 +969,7 @@ v2 v4::zw() const{
 	return { z, w };
 }
 
-v4& v4::operator*=(const m4& other) {
+v4 v4::operator*=(const m4& other) {
 	float newX = other.dat[0] * x + other.dat[1] * x + other.dat[2] * x + other.dat[3] * x;
 	float newY = other.dat[4] * y + other.dat[5] * y + other.dat[6] * y + other.dat[7] * y;
 	float newZ = other.dat[8] * z + other.dat[9] * z + other.dat[10] * z + other.dat[11] * z;
@@ -983,7 +983,7 @@ v4& v4::operator*=(const m4& other) {
 	return *this;
 }
 
-v4& m4::operator*(const v4& v) {
+v4 m4::operator*(const v4& v) {
 	
 	v4 res = { 
 		dat[0] * v.x + dat[4] * v.y + dat[8] * v.z +   dat[12] * v.w,
@@ -993,7 +993,7 @@ v4& m4::operator*(const v4& v) {
 	return res;
 }
 
-m4& m4::operator*(const m4& other) {
+m4 m4::operator*(const m4& other) {
 	m4 m = m4(1.0f);
 
 	for (unsigned char x = 0; x < 4; x++) {
@@ -1008,10 +1008,24 @@ m4& m4::operator*(const m4& other) {
 	return m;
 }
 
-m4& m4::operator*=(const m4& other) {
-	m4 m = this[0] * other;
-
-	memcpy(dat, other.dat, 16 * sizeof(float));
+m4 m4::operator*=(const m4& other) {
+	this[0] *= other;
 
 	return *this;
+}
+
+
+int main(){
+	m4 m1 = {1.0f};
+	m4 m2 = {1.0f};
+
+	m2 *= m1;
+
+
+	std::cout << "urmomo\n";
+
+	for(int i = 0; i < 16; i++){
+		std::cout << m2.dat[i] << std::endl;
+	}
+
 }
