@@ -1,5 +1,27 @@
 #include "Algebra.h"
 
+v2::v2(){
+	x = 0.0f;
+	y = 0.0f;
+}
+
+v3::v3() {
+	x = 0.0f;
+	y = 0.0f;
+	z = 0.0f;
+}
+
+v4::v4() {
+	x = 0.0f;
+	y = 0.0f;
+	z = 0.0f;
+	w = 0.0f;
+}
+
+m4::m4() {
+	dat = { 0.0f };
+}
+
 v2::v2(float scalar) {
 	x = scalar;
 	y = scalar;
@@ -92,7 +114,9 @@ v4::v4(float x, v3 v) {
 }
 
 m4::m4(float scalar) {
-	for (unsigned char i = 0; i < 3; i++) { dat[i*5] = scalar; }
+	dat = { 0 };
+
+	for (unsigned char i = 0; i < 4; i++) { dat[i*5] = scalar; }
 }
 
 v2 v2::operator+=(const v2& other) {
@@ -953,6 +977,7 @@ v4 v4::operator/(const v3& other) {
 }
 
 
+
 v2 v3::xy() const{
 	return { x, y };
 }
@@ -994,38 +1019,37 @@ v4 m4::operator*(const v4& v) {
 }
 
 m4 m4::operator*(const m4& other) {
-	m4 m = m4(1.0f);
+	m4 m;
 
-	for (unsigned char x = 0; x < 4; x++) {
-		for (unsigned char y = 0; y < 4; y++) {
-			m.dat[y * 4 + x] =
-				dat[x] * other.dat[y * 4] +
-				dat[x + 4] * other.dat[2 + y * 4] +
-				dat[x + 12] * other.dat[3 + y * 4] +
-				dat[x + 12] * other.dat[4 + y * 4];
+	for (unsigned char y = 0; y < 4; y++) {
+		for (unsigned char x = 0; x < 4; x++) {
+			v4 m1v = {
+				dat[y * 4 + 0],
+				dat[y * 4 + 1],
+				dat[y * 4 + 2],
+				dat[y * 4 + 3],
+			};
+
+			v4 m2v = {
+				other.dat[0 + x],
+				other.dat[4 + x],
+				other.dat[8 + x],
+				other.dat[12 + x],
+			};
+
+			m.dat[x + y * 4] = m1v & m2v;
 		}
 	}
 	return m;
 }
 
 m4 m4::operator*=(const m4& other) {
-	this[0] *= other;
+	m4 m;
+
+	m.dat = dat;
+	m = m * other;
+	dat = m.dat;
 
 	return *this;
 }
 
-
-int main(){
-	m4 m1 = {1.0f};
-	m4 m2 = {1.0f};
-
-	m2 *= m1;
-
-
-	std::cout << "urmomo\n";
-
-	for(int i = 0; i < 16; i++){
-		std::cout << m2.dat[i] << std::endl;
-	}
-
-}

@@ -11,6 +11,7 @@ class m4;
 
 class v2 {
 public:
+	v2();
 	v2(float scalar);
 	v2(float x, float y);
 	v2(int x, int y);
@@ -78,6 +79,7 @@ public:
 
 class v3 {
 public:
+	v3();
 	v3(float scalar);
 	v3(float x, float y, float z);
 	v3(int x, int y, int z);
@@ -149,6 +151,7 @@ public:
 
 class v4 {
 public:
+	v4();
 	v4(float scalar);
 	v4(float x, float y, float z, float w);
 	v4(int x, int y, int z, int w);
@@ -233,6 +236,7 @@ public:
 
 class m4 {
 public:
+	m4();
 	m4(float val);
 
 	v4 operator*(const v4& other);

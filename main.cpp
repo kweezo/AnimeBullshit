@@ -42,14 +42,13 @@ int main(int argc, char** argv) {
 
 	Pipeline pipeline = Pipeline(pipelineCreateInfo);
 
-	m4 m1 = { 1.0f };
-	m4 m2= { 1.0f };
+	m4 m1 = { 2.0f };
+	m4 m2= { 2.0f };
 
-	m2 *= m1;
+	m2.dat[11] = 2;
 
-	for (int i = 0; i < 16; i++) {
-		std::cout << m2.dat[i] << std::endl;
-	}
+	m1 *= m2;
+
 
 	while (true) {
 		if (window.UpdateWindow()) {
